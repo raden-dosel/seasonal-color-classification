@@ -73,11 +73,6 @@ async def upload_image(file: UploadFile = File(...)) -> JSONResponse:
 
     user_identified_palette = user_palette.description()
 
-    palette_colors = user_palette.display_palette_colors()
 
-
-
-
-
-    return JSONResponse(content={"message": "Image uploaded successfully", "palette": user_identified_palette, "colors": [palette_colors]})
+    return JSONResponse(content={"message": "Image uploaded successfully", "palette": user_identified_palette})
 
