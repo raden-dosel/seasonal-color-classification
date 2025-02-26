@@ -1,7 +1,7 @@
 # --- Needed to import modules from other packages
 import sys
 from os import path
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 # ---
 
 from .abstract_filter import AbstractFilter
@@ -9,11 +9,11 @@ import PIL
 import torch
 from torch import nn
 import torchvision.transforms as T
-from models import config
-from slurm_scripts import slurm_config
+from app.models import config
+from app.slurm_scripts import slurm_config
 
-from models.cloud.UNet import unet
-from utils import segmentation_labels
+from app.models.cloud.UNet import unet
+from app.utils import segmentation_labels
 
 class SegmentationFilter(AbstractFilter):
     """

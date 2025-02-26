@@ -1,14 +1,14 @@
 # --- Needed to import modules from other packages
 import sys
 from os import path
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 # ---
 
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
 from . import color_processing
-import utils.utils as utils
+import app.utils.utils as utils
 import cv2
 
 
@@ -41,8 +41,7 @@ def compute_subtone(lips_color):
     peach_color = torch.tensor([255, 230, 182], dtype=torch.uint8).reshape(lips_color.shape)
     purple_color = torch.tensor([210, 120, 180], dtype=torch.uint8).reshape(lips_color.shape)
 
-    if color_processing.color_distance(lips_color, peach_color) < color_processing.color_distance(lips_color,
-                                                                                                  purple_color):
+    if color_processing.color_distance(lips_color, peach_color) < color_processing.color_distance(lips_color, purple_color):
         return 'warm'
     
     return 'cold'
@@ -241,8 +240,7 @@ class PaletteRGB:
             header = header + '# metrics vector (SIVC)\n' + compact_string_(self.metrics_vector_) + '\n'
 
         header = header + '# color data\n'
-        np.savetxt(filename, utils.from_DHW_to_HWD(self.colors_).reshape((-1, 3)).numpy(),
-                   header=header, fmt='%u', delimiter=delimiter)
+        np.savetxt(filename, utils.from_DHW_to_HWD(self.colors_).reshape((-1, 3)).numpy(), header=header, fmt='%u', delimiter=delimiter)
 
     def load(self, filename, header=False, delimiter=';'):
         """
@@ -264,8 +262,7 @@ class PaletteRGB:
             self.metrics_vector_ = torch.from_numpy(np.array(header_data, dtype=np.uint8))
             file.close()
 
-        self.colors_ = torch.from_numpy(np.loadtxt(fname=filename, dtype=np.uint8, skiprows=int(header) * 3,
-                                                   delimiter=delimiter).reshape((1, -1, 3)))
+        self.colors_ = torch.from_numpy(np.loadtxt(fname=filename, dtype=np.uint8, skiprows=int(header) * 3, delimiter=delimiter).reshape((1, -1, 3)))
         self.colors_ = utils.from_HWD_to_DHW(self.colors_)
         return self
 
@@ -328,17 +325,3 @@ class PaletteRGB:
             distance = distances.mean()
 
         return distance.item()
-
-
-
-    def display_palette_colors(palette):
-        """
-        .. description::
-        Displays the colors inside the given palette.
-
-        .. inputs::
-        palette: an instance of PaletteRGB.
-        """
-        colors = palette.colors().reshape(3, -1).T
-        for idx, color in enumerate(colors):
-            print(f"Color {idx + 1}: R={color[0].item()}, G={color[1].item()}, B={color[2].item()}")

@@ -2,7 +2,7 @@ import cv2
 import torch
 import torchvision.transforms.functional as TF
 import random
-from utils import utils
+from app.utils import utils
 
 
 class BilateralFilter:

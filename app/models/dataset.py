@@ -2,7 +2,7 @@
 import sys
 from os import path
 
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 # ---
 
 import os
@@ -10,8 +10,8 @@ from typing import List, Tuple
 from torch.utils.data import Dataset
 from PIL import Image
 import xml.etree.ElementTree as ET
-from utils import segmentation_labels
-from palette_classification import color_processing
+from app.utils import segmentation_labels
+from app.palette_classification import color_processing
 import torchvision.transforms as T
 
 

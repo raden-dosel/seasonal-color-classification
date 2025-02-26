@@ -6,7 +6,7 @@ import time
 import math
 from ray.air import session
 import os
-from utils import utils, segmentation_labels
+from app.utils import utils, segmentation_labels
 
 
 def training_or_testing_epoch_(device, model, data_loader, score_fn, loss_fn=None, training=False, optimizer=None,

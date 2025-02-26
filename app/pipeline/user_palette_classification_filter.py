@@ -1,14 +1,14 @@
 # --- Needed to import modules from other packages
 import sys
 from os import path
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 # ---
 
 from .abstract_filter import AbstractFilter
-from metrics_and_losses import metrics
-import utils.utils as utils
-from palette_classification import color_processing, palette
-from utils import utils, segmentation_labels
+from app.metrics_and_losses import metrics
+import app.utils.utils as utils
+from app.palette_classification import color_processing, palette
+from app.utils import utils, segmentation_labels
 
 class UserPaletteClassificationFilter(AbstractFilter):
     """

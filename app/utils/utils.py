@@ -1,10 +1,10 @@
 import torch
 import argparse
 import matplotlib.pyplot as plt
-from palette_classification import color_processing
-from utils import segmentation_labels, model_names
-from slurm_scripts import slurm_config
-from models import config
+from app.palette_classification import color_processing
+from app.utils import segmentation_labels, model_names
+from app.slurm_scripts import slurm_config
+from app.models import config
 
 
 def tensor_weighted_average(tensor, weights):

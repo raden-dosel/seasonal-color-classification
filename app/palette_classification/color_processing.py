@@ -1,12 +1,12 @@
 # --- Needed to import modules from other packages
 import sys
 from os import path
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 # ---
                 
 import numpy as np
 import torch
-import utils.utils as utils
+import app.utils.utils as utils
 import cv2
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt

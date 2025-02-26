@@ -1,9 +1,9 @@
 import torchvision.transforms as T
-from models import config
+from app.models import config
 from ray import tune
 import os
 import torch
-from utils import custom_transforms, model_names
+from app.utils import custom_transforms, model_names
 
 
 class SlurmConfig:

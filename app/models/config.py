@@ -1,15 +1,15 @@
 import os
 
-ROOT_DIR = os.getcwd() + "/"
+ROOT_DIR = os.getcwd() + "app/"
 DATASET_PATH = ROOT_DIR + 'headsegmentation_dataset_ccncsa/'
 DRESSCODE_PATH_ON_LAB_SERVER = ...
-WEIGHTS_PATH = 'models/weights/'
-PLOTS_PATH = 'models/plots/'
-DEMO_PATH = 'models/demo/'
-CHECKPOINTS_PATH = 'models/training_best/'
-HPO_PATH = 'models/hpo/'
-PREPROCESSING_PATH = 'models/preprocessing/'
-LOSS_SELECTION_PATH = 'models/loss_selection/'
+WEIGHTS_PATH = 'app/models/weights/'
+PLOTS_PATH = 'app/models/plots/'
+DEMO_PATH = 'app/models/demo/'
+CHECKPOINTS_PATH = 'app/models/training_best/'
+HPO_PATH = 'app/models/hpo/'
+PREPROCESSING_PATH = 'app/models/preprocessing/'
+LOSS_SELECTION_PATH = 'app/models/loss_selection/'
 
 # Name of index file of dataset (file .xml in folder DATASET_PATH).
 DATASET_INDEX_NAME = 'training.xml'
